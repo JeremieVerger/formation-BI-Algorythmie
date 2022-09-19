@@ -170,3 +170,4 @@ document.write(niveau);
 document.write("<br/>");
 }
 
+// une modification pour s'entraîner avec Git
