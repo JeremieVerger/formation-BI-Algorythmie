@@ -118,6 +118,7 @@ console.log(mon);
 
 phrase = "Academy rocks";
 nouvelle_phrase ="";
+phrase = phrase.toLowerCase();
 voyelles = ["a","e","u","y","i","o"];
 for(i=0; i<phrase.length; i++){
     if( (voyelles.indexOf(phrase[i]) == -1 )){
