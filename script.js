@@ -224,8 +224,8 @@ else if(difficulte == "très facile"){
     victoire = false;
     while (victoire == false){
      utilisateur = prompt("Choisissez un nombre entre 1 et 100");
-     while(isNaN(utilisateur) == true){
-        alert("Vous devez entrer un nombre.");
+     while(isNaN(utilisateur) == true || (utilisateur <= 0 || utilisateur >101)){
+        alert("Vous devez entrer un nombre entre 1 et 100.");
         utilisateur = prompt("Choisissez un nombre entre 1 et 100");
     }
      if(ordinateur<utilisateur){
@@ -249,8 +249,8 @@ function jeu(n){
     victoire = false;
     for(i=0; i<n; i++){
         utilisateur = prompt("Choisissez un nombre entre 1 et 100");
-        while(isNaN(utilisateur) == true){
-            alert("Vous devez entrer un nombre.");
+        while(isNaN(utilisateur) == true || (utilisateur <= 0 || utilisateur > 101)){
+            alert("Vous devez entrer un nombre entre 1 et 100.");
             utilisateur = prompt("Choisissez un nombre entre 1 et 100");
         }
         if(ordinateur<utilisateur){
