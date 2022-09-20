@@ -116,12 +116,11 @@ for(i=0; i<nom.length; i++){
 }
 console.log(mon);
 
-phrase = "Academy rocks";
+phrase = "Academy Rocks";
 nouvelle_phrase ="";
-phrase = phrase.toLowerCase();
 voyelles = ["a","e","u","y","i","o"];
 for(i=0; i<phrase.length; i++){
-    if( (voyelles.indexOf(phrase[i]) == -1 )){
+    if( (voyelles.indexOf(phrase[i].toLowerCase()) == -1 )){
         nouvelle_phrase = nouvelle_phrase + phrase[i];
     }
 }
