@@ -42,6 +42,9 @@ B=200;
 C=A+B;
 console.log(C);
 
+D=A+""+B;
+console.log(D);
+
 prenom="Jérémie";
 nom="Verger";
 pm=prenom+nom;
@@ -68,6 +71,20 @@ if (age > 17 ) {
 }
 else{
     console.log("Vous êtes mineur.e !");
+}
+
+age2 = 20;
+sexe="M";
+
+if (( age2 > 17 ) && ( sexe == "M" )){
+    console.log("Vous êtes un homme majeur !");
+}
+else{
+    console.log("Vous n'êtes pas un homme majeur !");
+}
+
+if (( age2 > 17 ) || ( sexe == "M" )){
+    console.log("Vous êtes soit un homme soit majeur (soit les deux)!");
 }
 
 //Exercice : créer une variable contenant une valeur numérique/
@@ -144,8 +161,8 @@ for(j = 0; j < 11; j=j+1){
 }
 
 // afficher la factorielle d'un nombre
-n = 100
-fact = 1
+n = 100;
+fact = 1;
 for(i = 1; i<n+1; i = i+1){
     fact = fact*i;
 }
@@ -170,4 +187,87 @@ document.write(niveau);
 document.write("<br/>");
 }
 
-// une modification pour s'entraîner avec Git
+// voir fichier du prof sur son Github pour d'autres façons de faire et pour approfondir certaines notions. 
+
+// Exo : 
+// créer une variable n, en afficher la somme 1+2+3+4+...+n
+n = 100;
+somme = 0;
+for(i = 0; i<n+1; i = i+1){
+    somme = somme+i;
+}
+console.log("La somme des entiers jusqu'à " + n + " est " + somme);
+
+/* Coder un petit jeu:
+Créer une variable ordinateur qui permet de lui assigner un nombre aléatoire entre 1 et 100.
+Créer une variable utilisateur permettant à l'utilisateur de donner un nombre entre 1 et 100.
+Si le choix de l'utilisateur est bon, afficher "Bravo tu as gagné".
+Sinon, indiquer si c'est supérieur ou inférieur.
+Plusieurs niveaux de difficulté (nombre de tentatives).
+*/
+
+difficulte = prompt("Choisissez la difficulté : très facile, facile, moyen, difficile ou cauchemar.");
+if(difficulte == "facile"){
+    jeu(10);
+}
+else if(difficulte == "moyen"){
+    jeu(6);
+}
+else if(difficulte == "difficile"){
+    jeu(3);
+}
+else if(difficulte == "cauchemar"){
+    jeu(1);
+}
+else if(difficulte == "très facile"){
+    ordinateur = Math.floor(Math.random() * 100 ) + 1;
+    victoire = false;
+    while (victoire == false){
+     utilisateur = prompt("Choisissez un nombre entre 1 et 100");
+     while(isNaN(utilisateur) == true){
+        alert("Vous devez entrer un nombre.");
+        utilisateur = prompt("Choisissez un nombre entre 1 et 100");
+    }
+     if(ordinateur<utilisateur){
+          alert("Trop grand!");
+     }
+     else if(ordinateur>utilisateur){
+            alert("Trop petit!");
+     }
+        else{
+         alert("Bravo tu as gagné !");
+         victoire = true;
+      }   
+    }
+}
+else {
+    alert("Faites attention à ce que vous entrez! Rechargez la page pour réessayer. ");
+}
+
+function jeu(n){
+    ordinateur = Math.floor(Math.random() * 100 ) + 1 ;
+    victoire = false;
+    for(i=0; i<n; i++){
+        utilisateur = prompt("Choisissez un nombre entre 1 et 100");
+        while(isNaN(utilisateur) == true){
+            alert("Vous devez entrer un nombre.");
+            utilisateur = prompt("Choisissez un nombre entre 1 et 100");
+        }
+        if(ordinateur<utilisateur){
+            alert("Trop grand!");
+        }
+        else if(ordinateur>utilisateur){
+            alert("Trop petit!");
+        }
+        else{
+            alert("Bravo vous avez gagné !");
+            victoire = true;
+            break;
+        }   
+    }
+    if(victoire == false){
+        alert("Vous avez perdu ! Le nombre était " + ordinateur);   
+    }
+}
+
+    
