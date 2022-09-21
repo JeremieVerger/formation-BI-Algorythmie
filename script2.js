@@ -21,7 +21,7 @@ somme = somme + d;
 console.log("Somme de " + a + " , " + c + " , " + d  + " et " + b + ": " +somme);
 console.log("Moyenne de " + a + " , " + c + " , " + d  + " et " + b + ": " +somme/4);
 
-n = prompt("Combien de nombres voulez-vous entrer ?");
+/* n = prompt("Combien de nombres voulez-vous entrer ?");
 somme = 0;
 i=0
 while(i<n){
@@ -31,6 +31,7 @@ while(i<n){
 }
 console.log("Somme : " + somme);
 console.log("Moyenne : " + somme/n);
+*/
 
 // Tableaux
 
@@ -126,3 +127,125 @@ for(i=0; i<phrase.length; i++){
 }
 console.log(nouvelle_phrase);
 
+/* Fonctions :
+
+Refaire les scripts précédents en fonction :
+*/
+
+function Somme(tableau){
+    s = 0;
+    for(i=0; i<tableau.length; i++) {
+        s = s + tableau[i];
+    }
+    return s;
+}
+
+age = [52, 46, 12, 27,66];
+console.log("Somme des âges : " + Somme(age) );
+
+function Moyenne(tableau){
+    s = 0;
+    for(i=0; i<tableau.length; i++) {
+        s = s + tableau[i];
+    }
+    return s/tableau.length;
+}
+
+console.log("Moyenne des âges : " + Moyenne(age) );
+
+function Max(tableau){
+    max = tableau[0];
+    for(i=1; i<tableau.length; i++) {
+        if (max< tableau[i]){
+            max = tableau[i];
+        }
+    }
+    return max;
+}
+
+console.log("Maximum des âges : " + Max(age));
+
+function Min(tableau){
+    min = tableau[0];
+    for(i=1; i<tableau.length; i++) {
+        if (min> tableau[i]){
+            min = tableau[i];
+        }
+    }
+    return min;
+}
+
+console.log("Minimum des âges : " + Min(age));
+
+prenom = ["Amir","Jérémie","Kokou","Caroline","Noémie"];
+
+function Plus_Petit(tableau){
+    petit = tableau[0].length;
+    indice = 0;
+    for(i=1; i<tableau.length; i++) {
+        if (petit > tableau[i].length){
+            petit = tableau[i].length;
+            indice = i;
+        }
+    }
+    return tableau[indice];
+}
+
+console.log("Plus petit prénom : " + Plus_Petit(prenom));
+
+students = age.concat(prenom);
+
+function Somme_Absurde(tableau){
+    somme = 0
+    for(i=0; i<tableau.length; i++) {
+        if(isNaN(tableau[i]) == true ){
+            somme = somme + tableau[i].length;
+        }
+        else{
+            somme = somme + tableau[i];
+        }
+    }
+    return somme;
+}
+console.log(Somme_Absurde(students));
+
+nom = "Jérémie";
+
+function Inverser_mot(mot){
+    tom="";
+    for(i=0; i<mot.length; i++){
+        tom = tom + mot[mot.length- 1  - i];
+    }
+    return tom;
+}
+
+console.log(Inverser_mot(nom));
+
+phrasetest = "Academy Rocks";
+
+function Supprimer_Voyelles(phrase){
+    nouvelle_phrase ="";
+    voyelles = ["a","e","u","y","i","o"];
+    for(i=0; i<phrase.length; i++){
+        if( (voyelles.indexOf(phrase[i].toLowerCase()) == -1 )){
+            nouvelle_phrase = nouvelle_phrase + phrase[i];
+        }
+    }
+    return nouvelle_phrase;
+}
+
+console.log(Supprimer_Voyelles(phrasetest));
+
+// Coder une fonction de tri croissant d'un tableau de nombres
+
+function Tri_tableau_numerique(tableau){
+    trie = [];
+    while(tableau.length>0){
+        trie.push(Min(tableau));
+        tableau.splice(tableau.indexOf(Min(tableau)),1);
+    }
+    return trie;
+}
+
+age = [52, 46, 12, 27,66,27,99,3,52,4];
+console.table(Tri_tableau_numerique(age))
